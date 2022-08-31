@@ -1,9 +1,10 @@
 import random
 
 class Card(object):
+    dict1 = {1:'Ace', 2:'Two', 3:'Three', 4:'Four', 5:'Five', 6:'Six', 7:'Seven', 8:'Eight', 9:'Nine', 10:'Ten', 11:'Jack', 12:'Queen', 13:'King'}
     def __init__(self, suit, val):
         self.suit = suit
-        self.value = val
+        self.value = Card.dict1[val]
 
     # Implementing build in methods so that you can print a card object
     def __unicode__(self):
@@ -14,18 +15,7 @@ class Card(object):
         return self.show()
         
     def show(self):
-        if self.value == 1:
-            val = "Ace"
-        elif self.value == 11:
-            val = "Jack"
-        elif self.value == 12:
-            val = "Queen"
-        elif self.value == 13:
-            val = "King"
-        else:
-            val = self.value
-
-        return "{} of {}".format(val, self.suit)
+        return "{} of {}".format(self.value, self.suit)
 
 
 class Deck(object):
